@@ -1,9 +1,3 @@
-¡Claro que sí\! Aquí tienes nuevamente el contenido para tu archivo `README.md`, basado en el código de tu API.
-
-Puedes copiar y pegar este texto directamente en un archivo llamado `README.md` en la raíz de tu proyecto.
-
------
-
 # API
 
 Esta es una API RESTful construida con Node.js y Express para gestionar los recursos de una tienda en línea. Permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) para productos, categorías, marcas y usuarios.
