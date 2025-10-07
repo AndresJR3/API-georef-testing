@@ -4,7 +4,7 @@ Puedes copiar y pegar este texto directamente en un archivo llamado `README.md` 
 
 -----
 
-# API de Tienda 🛍️
+# API
 
 Esta es una API RESTful construida con Node.js y Express para gestionar los recursos de una tienda en línea. Permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) para productos, categorías, marcas y usuarios.
 
