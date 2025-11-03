@@ -1,6 +1,6 @@
 const faker = require("faker");
 
-class categoriesServices {
+class CategoriesService {
   constructor() {
     this.categories = [];
     this.generate();
@@ -18,28 +18,24 @@ class categoriesServices {
     }
   }
 
-  // Obtener todas las categorías
-  getAll() {
+  async getAll() {
     return this.categories;
   }
 
-  // Obtener categoría por ID
-  getById(id) {
+  async getById(id) {
     return this.categories.find(c => c.id === parseInt(id, 10));
   }
 
-  // Crear nueva categoría
-  create(data) {
+  async create(data) {
     const newCategory = {
-      id: this.categories.length +1,
+      id: this.categories.length + 1,
       ...data
     };
     this.categories.push(newCategory);
     return newCategory;
   }
 
-  // Actualizar categoría por ID (parcial)
-  update(id, changes) {
+  async update(id, changes) {
     const index = this.categories.findIndex(c => c.id === parseInt(id, 10));
     if (index === -1) throw new Error("Categoría no encontrada");
 
@@ -50,8 +46,7 @@ class categoriesServices {
     return this.categories[index];
   }
 
-  // Eliminar categoría por ID
-  deleteById(id) {
+  async deleteById(id) {
     const index = this.categories.findIndex(c => c.id === parseInt(id, 10));
     if (index === -1) throw new Error("Categoría no encontrada");
 
@@ -60,4 +55,4 @@ class categoriesServices {
   }
 }
 
-module.exports = categoriesServices;
+module.exports = CategoriesService;

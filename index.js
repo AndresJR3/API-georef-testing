@@ -1,5 +1,7 @@
 const express = require('express');
 const routerApi = require('./routes/rutas');
+const setupSwagger = require('./swagger');
+const { logErrors, errorHandler } = require('./middlewares/errorHandler');
 
 /* la instancia de como lo utilizamos */
 const app = express(); //
@@ -23,6 +25,10 @@ app.get("/nuevaruta", (req, res) => {
 })
 
 routerApi(app);
+
+setupSwagger(app);
+app.use(logErrors);
+app.use(errorHandler);
 
 
 /* Paranetros de tipo ruta categories/1/products/1 */

@@ -1,4 +1,4 @@
-const faker = require('faker');
+const faker = require("faker");
 
 class BrandsService {
   constructor() {
@@ -17,7 +17,7 @@ class BrandsService {
     }
   }
 
-  create(data) {
+  async create(data) {
     const newBrand = {
       id: this.brands.length + 1,
       ...data,
@@ -26,26 +26,28 @@ class BrandsService {
     return newBrand;
   }
 
-  getAll() {
+  async getAll() {
     return this.brands;
   }
 
-  getById(id) {
-    return this.brands.find(b => b.id === parseInt(id, 10));
+  async getById(id) {
+    return this.brands.find((b) => b.id === parseInt(id, 10));
   }
 
-  update(id, changes) {
-    const index = this.brands.findIndex(b => b.id === parseInt(id, 10));
-    if (index === -1) throw new Error("Brand not found");
-    this.brands[index] = { ...this.brands[index], ...changes };
+  async update(id, changes) {
+    const index = this.brands.findIndex((b) => b.id === parseInt(id, 10));
+    if (index === -1) throw new Error("Marca no encontrada");
+    this.brands[index] = {
+      ...this.brands[index],
+      ...changes };
     return this.brands[index];
   }
 
-  delete(id) {
-    const index = this.brands.findIndex(b => b.id === parseInt(id, 10));
-    if (index === -1) throw new Error("Brand not found");
+  async delete(id) {
+    const index = this.brands.findIndex((b) => b.id === parseInt(id, 10));
+    if (index === -1) throw new Error("Marca no encontrada");
     this.brands.splice(index, 1);
-    return { message: "Brand deleted" };
+    return { message: "Marca eliminada" };
   }
 }
 
